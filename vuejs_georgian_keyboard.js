@@ -70,7 +70,13 @@ Vue.directive('georgian', {
             }
 
             e.target.value = this.value
-		})
+			
+            let inputEvent = new Event('input', {
+                bubbles: true
+            });
+            el.value = this.value;
+            el.dispatchEvent(inputEvent);
+	})
 
-	}
+}
 })
